@@ -1,56 +1,78 @@
-#body{
-    margin : 0;
-    display:flex;
+body {
+    margin: 0;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
 }
-#calculator{
-    font-family: Arial,  sans-serif;
+
+#calculator {
+    font-family: Arial, sans-serif;
     background-color: rgb(37, 33, 33);
     border-radius: 15px;
-    max-width: 500px;
+    width: 90%;                /* Responsive width */
+    max-width: 400px;          /* Limit max size */
     overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
-#display{
+
+#display {
     width: 100%;
-    padding:20px;
-    font-size: 5rem;
-    text-align: left;
+    padding: 15px;
+    font-size: 2.5rem;          /* Scales better on mobile */
+    text-align: right;          /* Right-aligned for readability */
     border: none;
     background-color: rgb(59, 54, 54);
     color: white;
+    box-sizing: border-box;
 }
-#keys{
-    display:grid;
+
+#keys {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap : 10px;
-    padding :25px;
+    gap: 10px;
+    padding: 20px;
+    box-sizing: border-box;
 }
-button{
-    width: 80px;
-    height:80px;
-    border-radius: 50px;
+
+button {
+    aspect-ratio: 1 / 1;        /* Keeps buttons square */
+    width: 100%;                /* Fill grid cell */
+    border-radius: 50%;
     border: none;
     background-color: rgb(56, 51, 51);
     color: white;
-    font-size: 3rem;
+    font-size: 1.5rem;          /* Scales with container */
     font-weight: bold;
     cursor: pointer;
+    transition: 0.2s;
 }
-button:hover{
+
+button:hover {
     background-color: rgba(66, 68, 70, 0.979);
 }
-button:active{
+button:active {
     background-color: rgba(74, 81, 87, 0.95);
 }
-.operator-btn{
+
+.operator-btn {
     background-color: rgb(255, 166, 0);
 }
-.operator-btn:hover{
+.operator-btn:hover {
     background-color: rgb(223, 161, 47);
 }
-.operator-btn:active{
+.operator-btn:active {
     background-color: rgb(218, 144, 8);
+}
+
+/* ✅ Mobile adjustments */
+@media (max-width: 480px) {
+    #display {
+        font-size: 2rem;
+        padding: 10px;
+    }
+    button {
+        font-size: 1.2rem;
+    }
 }
